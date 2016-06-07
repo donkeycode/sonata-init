@@ -21,8 +21,10 @@ vagrant ssh<br />
 sudo locale-gen UTF-8<br />
 sudo dpkg-reconfigure phpmyadmin<br />
 composer install<br />
-php app/console doctrine:generate:entities --dest=src<br />
-php app/console doctrine:schema:update<br />
+php app/console doctrine:generate:entities Application/Sonata<br />
+php app/console doctrine:schema:update --force<br />
 php app/console fos:user:create admin --super-admin<br />
 php app/console sonata:page:create-site
+php app/console sonata:page:update-core-routes --site=all
+php app/console sonata:page:create-snapshots --site=all
 <br /><br />

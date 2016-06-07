@@ -134,9 +134,9 @@ AddType text/html .php',
 apache::listen { '8080': }
 
 
-apache::vhost { 'demo-alba.dev':
+apache::vhost { 'sonata-init.dev':
   port          => '8080',
-  docroot       => '/home/vagrant/demo-alba/web',
+  docroot       => '/home/vagrant/sonata-init/web',
   priority      => 10,
   # docroot_owner => 'vagrant',
   # docroot_group => 'vagrant',
@@ -144,7 +144,7 @@ apache::vhost { 'demo-alba.dev':
   directories => [
       {
         options        => ['Indexes','FollowSymLinks','MultiViews'],
-        path           => '/home/vagrant/demo-alba/web',
+        path           => '/home/vagrant/sonata-init/web',
         allow_override => 'None',
         rewrites      => [ {
             rewrite_cond => ['%{REQUEST_FILENAME} !-f'],
@@ -161,13 +161,13 @@ apache::vhost { 'demo-alba.dev':
 }
 
 cron { "sendmails":
-  command => "cd /home/vagrant/demo-alba && /usr/bin/php app/console swiftmailer:spool:send",
+  command => "cd /home/vagrant/sonata-init && /usr/bin/php app/console swiftmailer:spool:send",
   user    => "vagrant",
   hour    => "*",
   minute  => "*"
 }
 
-apache::vhost { 'pma.demo-alba.dev':
+apache::vhost { 'pma.sonata-init.dev':
   port         => '8080',
   docroot      => '/usr/share/phpmyadmin',
   directories => [
