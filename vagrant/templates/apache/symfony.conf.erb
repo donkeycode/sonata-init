@@ -1,0 +1,43 @@
+<VirtualHost *:<%= @port %>>
+  ServerName <%= @server_name_value %>
+<% if @serveraliases != "" -%>
+<% if @serveraliases.is_a? Array -%>
+    ServerAlias <%= @serveraliases.flatten.join(" ") %>
+<% else -%>
+    ServerAlias <%= @serveraliases %>
+<% end -%>
+<% end -%>
+<% if @env_variables != "" -%>
+<% if env_variables.is_a? Array -%>
+<% env_variables.each do |envvars| -%>
+    SetEnv <%= envvars %>
+<% end -%>
+<% end -%>
+<% end -%>
+
+  DocumentRoot <%= @real_docroot %>
+  <Directory <%= @real_docroot %>>
+    Options Indexes FollowSymLinks MultiViews
+
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^(.*)$ app_dev.php [QSA,L]
+
+
+    AllowOverride None
+    Require all granted
+  </Directory>
+  
+  ErrorLog /var/log/apache2/<%= @server_name_value %>_error.log
+  LogLevel warn
+  CustomLog /var/log/apache2/<%= @server_name_value %>_access.log combined
+  ServerSignature Off
+
+  <FilesMatch "\.(ttf|otf|eot|woff)$">
+    <IfModule mod_headers.c>
+      Header set Access-Control-Allow-Origin "*"
+    </IfModule>
+  </FilesMatch>
+</VirtualHost>
+
+

@@ -1,0 +1,5 @@
+vagrant/puppet/config.pp
+symfony/bin/yuicompressor.jar
+symfony/web/assetic/*
+symfony/bower_components
+symfony/web/css/

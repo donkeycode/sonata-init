@@ -1,0 +1,32 @@
+assetic:
+    debug:            false
+    use_controller:   false
+    read_from:        %kernel.root_dir%/../web
+    write_to:         %kernel.root_dir%/../web
+    #dump_on_warmup:   true                     # do not compile on cache warmup
+    bundles: []                                 # disable bundles parsing
+
+#    filters:
+#        yui_js:
+#            jar: "%kernel.root_dir%/../bin/yuicompressor-2.4.7.jar"
+
+#        yui_css:
+#            jar: "%kernel.root_dir%/../bin/yuicompressor-2.4.7.jar"
+
+#    assets:
+#        common:
+#            inputs:
+#                - %kernel.root_dir%/../web/js/main.js
+#                - %kernel.root_dir%/../web/js/search_booking.js
+
+#            filters:
+#                - yui_js
+
+#        main:
+#            inputs:
+#                - %kernel.root_dir%/../web/css/bootstrap.css
+#                - %kernel.root_dir%/../web/css/template_homepage.css
+#                - %kernel.root_dir%/../web/css/main.css
+
+#            filters:
+#                - yui_css

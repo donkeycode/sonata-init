@@ -1,0 +1,16 @@
+forge "https://forgeapi.puppetlabs.com"
+
+# These guys are required by the git modules and librarian-puppet seems
+# to have issues when they are not specified here, even though they are listed
+# as dependencies
+mod 'puppetlabs-stdlib'
+mod 'puppetlabs-firewall'
+mod 'puppetlabs-gcc'
+mod 'puppetlabs-apt', '1.8.0'
+mod 'maestrodev-wget'
+mod 'thias-samba'
+mod 'willdurand-nodejs'
+mod 'example42-php'
+mod 'puppetlabs-apache'
+mod 'puppetlabs-mysql'
+mod 'bashtoni-varnish'

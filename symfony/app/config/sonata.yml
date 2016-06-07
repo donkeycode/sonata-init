@@ -1,0 +1,10 @@
+imports:
+    - { resource: config-sonata/sonata-user.yml }
+    - { resource: config-sonata/sonata-configuration.yml }
+    - { resource: config-sonata/sonata-media.yml }
+    - { resource: config-sonata/sonata-cache.yml }
+    - { resource: config-sonata/sonata-seo.yml }
+    - { resource: config-sonata/sonata-block.yml }
+    - { resource: config-sonata/sonata-notification.yml }
+    - { resource: config-sonata/sonata-page.yml }
+    #- { resource: config-sonata/sonata-admin.yml }

@@ -1,0 +1,3 @@
+# Git config
+$git_user_email = "cedric.lombardot@gmail.com"
+$git_user_fullname = "Cedric LOMBARDOT"

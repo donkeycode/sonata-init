@@ -1,0 +1,36 @@
+<VirtualHost *:<%= @port %>>
+  ServerName <%= @server_name_value %>
+
+<% if @aliases != "" -%>
+<% @aliases.each do |name, real_docroot| -%>
+    Alias <%= name %> <%= real_docroot %>
+
+    <Directory <%= real_docroot %>>
+      Options Indexes FollowSymLinks MultiViews
+
+      RewriteEngine On
+      RewriteBase <%= name %>
+      RewriteCond %{REQUEST_FILENAME} !-f
+      RewriteRule ^(.*)$ app_dev.php [QSA,L]
+
+
+      AllowOverride None
+      Require all granted
+
+    </Directory>
+<% end -%>
+<% end -%>
+
+      ErrorLog /var/log/apache2/desk_error.log
+      LogLevel warn
+      CustomLog /var/log/apache2/desk_access.log combined
+      ServerSignature Off
+
+  <FilesMatch "\.(ttf|otf|eot|woff)$">
+    <IfModule mod_headers.c>
+      Header set Access-Control-Allow-Origin "*"
+    </IfModule>
+  </FilesMatch>
+</VirtualHost>
+
+
