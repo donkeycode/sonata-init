@@ -3,10 +3,10 @@
 1/ Go to vagrant/puppet<br />
 2/ Transform config.pp.dist to config.pp<br />
 3/ Change data with your informations (site name and ip address)<br />
-   * line 9 :config.vm.hostname = "demo-alba.dev"<br>
-   * line 10 : config.hostmanager.aliases = %w(pma.demo-alba.dev demo-alba.dev)<br>
-   * line 33 : config.vm.network :private_network, ip: "10.10.10.12"<br>
-   * line 50 : config.vm.synced_folder "../symfony", "/home/vagrant/demo-alba", :nfs => true
+   * line 9 :config.vm.hostname = "sonata-init.dev"<br>
+   * line 10 : config.hostmanager.aliases = %w(pma.sonata-init.dev sonata-init.dev)<br>
+   * line 33 : config.vm.network :private_network, ip: "10.10.10.15"<br>
+   * line 50 : config.vm.synced_folder "../symfony", "/home/vagrant/sonata-init", :nfs => true
 <br />
 4/ Go to symfony/config<br />
 5/ Transform paramaters.yml.dist to paramaters.yml<br />
